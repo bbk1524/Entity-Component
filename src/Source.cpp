@@ -10,6 +10,7 @@ int main()
 {
 	Entity e{ "AB" };
 	e.update();
-
+#ifdef _WIN32
 	system("Pause");
+#endif
 }
