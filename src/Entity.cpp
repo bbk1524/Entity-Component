@@ -10,6 +10,8 @@
 //How the heck am I supposed to pass stuff to the 
 //init functions?
 //In my final, I passed in a Game* and an x,y,angle
+
+//I want to use the standard system of each component having only data, and making "Systems" which read and write to the components on update
 Entity::Entity(std::string type)
 {
 	if (type == "A")
@@ -33,7 +35,7 @@ Entity::Entity(std::string type)
 		components.push_back(std::move(pA));
 
 		auto pB = std::make_unique<ComponentB>(this);
-		pB->init(this->get_component<ComponentA>()->a + 1);
+        pB->init(pB->get_owner()->get_component<ComponentA>()->a * 2);
 		components.push_back(std::move(pB));
 	}
 }
