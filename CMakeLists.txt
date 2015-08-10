@@ -20,12 +20,11 @@ add_executable(${PROJECT_NAME}
 	${Source_Files}
 )
 
-# Compile for C++ 11 with proper flags. CMake doesn't know that VS does this by default and whines
+# Compile for C++ 14 with proper flags. CMake doesn't know that VS does this by default and whines
 if(MSVC)
 	# set warnings high, but suppress the one about unused parameters
 	set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS " /W4 /wd4100")
 else(MSVC)
-# if(NOT MSVC)
 	set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
 	set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
     set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY COMPILE_FLAGS " -Wall -Wextra -pedantic -Wno-unused-parameter")

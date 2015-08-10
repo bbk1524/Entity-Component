@@ -3,7 +3,8 @@
 #include <vector>
 #include <memory>
 
-class Component;
+//class Component;
+#include "Component.h" //This seems to work...
 
 class Entity
 {

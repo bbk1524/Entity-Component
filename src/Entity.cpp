@@ -1,5 +1,6 @@
 #include "Entity.h"
 
+#include "Component.h"
 #include "ComponentA.h"
 #include "ComponentB.h"
 
