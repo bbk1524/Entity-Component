@@ -8,7 +8,7 @@ public:
 	ComponentB(Entity* owner);
 	~ComponentB() = default;
 	void update() override;
-	void init(int b);
+	void init(int b1, int b2);
 //private:
 	int b;
 };

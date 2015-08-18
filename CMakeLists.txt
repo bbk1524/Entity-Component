@@ -1,5 +1,17 @@
 cmake_minimum_required(VERSION 3.1)
 
+# Call after a set command with a list of files: set(Source_Files value1 [value ...])
+# Place the argument in double quotes: create_files_if_needed("${Source_Files}")
+# To make the cmake step faster, erase the function call after it's done its work
+FUNCTION(create_files_if_needed list_of_files)
+	FOREACH(word ${list_of_files})
+		IF(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${word})
+			MESSAGE("----- creating: ${word} -----")
+			FILE(WRITE ${word} "")
+		ENDIF()	
+	ENDFOREACH()
+ENDFUNCTION()
+
 project(Entity-Component)
 
 set(Source_Files
@@ -12,7 +24,10 @@ set(Source_Files
 	src/Entity.h
 	src/Entity.cpp
 	src/Source.cpp
+	src/tmp.txt
 )
+
+create_files_if_needed("${Source_Files}")
 
 source_group(Source_Files FILES ${Source_Files})
 

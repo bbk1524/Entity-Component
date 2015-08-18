@@ -24,7 +24,15 @@ public:
 		}
 		return nullptr;
 	}
+	template <typename T, typename ...Args>
 
+	//pass this the args for component.init(), and it will forward them
+	void add_component(Args&&... args)
+	{
+		auto pB = std::make_unique<T>(this);
+		pB->init(std::forward<Args>(args)...);
+		components.push_back(std::move(pB));
+	}
 private:
 	std::vector<std::unique_ptr<Component>> components;
 	bool is_valid{ false };

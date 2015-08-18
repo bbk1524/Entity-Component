@@ -14,27 +14,18 @@ Entity::Entity(std::string type)
 {
 	if (type == "A")
 	{
-		auto pA = std::make_unique<ComponentA>(this);
-		pA->init(34);
-		components.push_back(std::move(pA));
+		add_component<ComponentA>(56);
 	}
 
 	if (type == "B")
 	{
-		auto pB = std::make_unique<ComponentB>(this);
-		pB->init(4);
-		components.push_back(std::move(pB));
+		add_component<ComponentB>(4, 3);
 	}
 
 	if (type == "AB")
 	{
-		auto pA = std::make_unique<ComponentA>(this);
-		pA->init(34);
-		components.push_back(std::move(pA));
-
-		auto pB = std::make_unique<ComponentB>(this);
-		pB->init(this->get_component<ComponentA>()->a + 1);
-		components.push_back(std::move(pB));
+		add_component<ComponentA>(2);
+		add_component<ComponentB>(this->get_component<ComponentA>()->a + 1, 1);
 	}
 }
 

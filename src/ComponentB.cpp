@@ -13,7 +13,7 @@ void ComponentB::update()
 	std::cout << "Hello from B " << b << std::endl;
 }
 
-void ComponentB::init(int b)
+void ComponentB::init(int b1, int b2)
 {
-	this->b = b;
+	this->b = b1 * b2;
 }
