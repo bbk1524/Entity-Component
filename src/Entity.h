@@ -3,8 +3,7 @@
 #include <vector>
 #include <memory>
 
-//class Component;
-#include "Component.h" //This seems to work...
+#include "Component.h"
 
 class Entity
 {
@@ -35,5 +34,5 @@ public:
 	}
 private:
 	std::vector<std::unique_ptr<Component>> components;
-	bool is_valid{ false };
+	//bool is_valid{ false };
 };
