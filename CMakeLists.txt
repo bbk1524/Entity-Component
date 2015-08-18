@@ -24,7 +24,6 @@ set(Source_Files
 	src/Entity.h
 	src/Entity.cpp
 	src/Source.cpp
-	src/tmp.txt
 )
 
 create_files_if_needed("${Source_Files}")
