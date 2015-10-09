@@ -13,6 +13,7 @@ public:
 	void update();
 
 	//Don't assign this to anything in callers!!!
+	//Unless it will be around for the life of the object!
 	template<typename T>
 	T* get_component()
 	{
